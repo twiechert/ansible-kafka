@@ -85,12 +85,12 @@
   with_items: "{{ grep_result.stdout_lines }}"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "6"
 
-- name: Disable Transparent Huge Pages in Grub 2
-  lineinfile: dest=/etc/default/grub
-              state=present
-              line='GRUB_CMDLINE_LINUX=$GRUB_CMDLINE_LINUX" transparent_hugepage=never"'
-  when: "{{ ansible_distribution_major_version|int }} > 6"
-  notify: update-grub
+#- name: Disable Transparent Huge Pages in Grub 2
+ # lineinfile: dest=/etc/default/grub
+  #            state=present
+   #           line='GRUB_CMDLINE_LINUX=$GRUB_CMDLINE_LINUX" transparent_hugepage=never"'
+  #when: "{{ ansible_distribution_major_version|int }} > 6"
+  #notify: update-grub
 
 - meta: flush_handlers
 
@@ -108,8 +108,8 @@
   shell: tuned-adm profile cassandra
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
 
-- name: Set hosts file
-  template: src=hosts.j2 dest=/etc/hosts mode=0644
+#- name: Set hosts file
+ # template: src=hosts.j2 dest=/etc/hosts mode=0644
 
 - include: firewall.yml
   when: cloud.nodes_count is defined and cloud.nodes_count > 0

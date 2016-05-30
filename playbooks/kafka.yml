@@ -38,7 +38,7 @@
 
 - name: "Configure Envs"
   hosts: all
-  sudo: yes
+  become: yes
   roles:
     - role: franklinkim.environment
   vars:

@@ -39,7 +39,7 @@ PID_FILE=/var/run/zookeeper/zookeeper-server.pid
 install -d -m 0755 -o {{ zookeeper_user }} -g {{ zookeeper_group }} /var/run/zookeeper/
 
 DODTIME=3
-
+export JMX_PORT=${JMX_PORT:-9999}
 export ZOOPIDFILE=${PID_FILE}
 export ZOOKEEPER_HOME=${ZOOKEEPER_HOME:-/opt/zookeeper}
 export ZOOKEEPER_CONF=${ZOOKEEPER_CONF:-{{ zookeeper_conf_dir }}}

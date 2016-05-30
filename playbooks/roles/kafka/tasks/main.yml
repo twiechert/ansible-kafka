@@ -35,6 +35,10 @@
 - name: Create Kafka conf directory
   file: path={{ kafka_conf_dir }} state=directory owner=root group=root mode=755
 
+- name: Export port
+- shell: export JMX_PORT=${JMX_PORT:-9999}
+
+
 - name: Install Kafka init script
   template: src=kafka-server.j2 dest=/etc/init.d/kafka-server mode=0755
   notify: reload systemd

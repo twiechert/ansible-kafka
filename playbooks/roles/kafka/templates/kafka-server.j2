@@ -43,8 +43,6 @@ KAFKA_GROUP="${KAFKA_GROUP:-`id -gn $KAFKA_USER 2> /dev/null`}"
 # Kafka home
 KAFKA_HOME="${KAFKA_HOME:-/opt/kafka}"
 
-export JMX_PORT=${JMX_PORT:-9999}
-
 # Kafka startup script
 KAFKA_START_SCRIPT="${KAFKA_HOME}/bin/kafka-server-start.sh"
 

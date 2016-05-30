@@ -59,3 +59,4 @@
 
 - name: Add Kafka binaries to PATH
   copy: src=kafka.sh dest=/etc/profile.d/ owner=root group=root mode=644
+  notify: restart kafka

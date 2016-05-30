@@ -36,6 +36,15 @@
       debug: var=hostvars[inventory_hostname]
       when: debug
 
+- name: "Configure Envs"
+  hosts: all
+  sudo: yes
+  roles:
+    - role: franklinkim.environment
+  vars:
+    environment_config:
+      JMX_PORT: 9999
+
 - name: "Apply the common role to all nodes"
   hosts: kafka-nodes
   become: yes

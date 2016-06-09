@@ -1,19 +1,20 @@
 packages:
   - openjdk-7-jdk
-  - python-simplejson
-  - man-db
-  - vim
-  - sysstat
+  #- python-simplejson
+  #- man-db
+  #- vim
+  #- sysstat
   - lsof
   - netcat
   - ntp
-  - parted
+  #- parted
   - iotop
   - unzip
   - curl
   - wget
-  - ifenslave
-  - xfsprogs
+  - nano
+  #- ifenslave
+  #- xfsprogs
 
 update_grub: "/usr/sbin/update-grub"
 

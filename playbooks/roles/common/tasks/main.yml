@@ -24,6 +24,7 @@
 - name: Ensure required packages are installed (apt)
   apt:
     name: "{{ item }}"
+    force: true
     update_cache: yes
     state: installed
   with_items: "{{ packages }}"

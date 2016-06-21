@@ -1,4 +1,7 @@
 ---
+- name: export variable
+  command: export JMX_PORT=${JMX_PORT-9999}
+
 - name: add group "kafka"
   group: name={{ kafka_group }} system=yes
 

@@ -1,6 +1,6 @@
 ---
-- name: export variable
-  shell: export JMX_PORT=${JMX_PORT-9999}
+#- name: export variable
+#  shell: export JMX_PORT=${JMX_PORT-9999}
 
 #- name: Set JMX_PORT persitently
 #  lineinfile: dest=/etc/environment state=present regexp='^JMX_PORT'  line='JMX_PORT=9999'
@@ -22,6 +22,9 @@
 
 - name: Set permissions to Kafka folder
   file: path=/opt/kafka/ owner=root group=root recurse=yes
+
+- name: Set JMX_PORT persitently
+  lineinfile: dest=/opt/kafka/bin/kafka-server-start.sh state=present insertbefore=BOF regexp='^export JMX_PORT'  line='export JMX_PORT=${JMX_PORT-9999}'
 
 - name: Create Kafka data directory
   file: path="/disk{{ item.0 + 1 }}/kafka/data" state=directory owner={{ kafka_user }} group={{ kafka_group }}
